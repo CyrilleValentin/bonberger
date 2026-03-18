@@ -1,0 +1,35 @@
+{
+  "home": {
+    "navbar": {
+      "link1": "Accueil",
+      "link2": "Ecole",
+      "link3": "Notre Equipe",
+      "link4": "Qui Sommes-Nous",
+      "link5": "Nous Soutenir",
+      "link6": "Contactez-nous",
+      "language": "Langue",
+      "loginBtn": "Se connecter",
+      "dashboardBtn": "Tableau de bord"
+    }
+  },
+  "footer": {
+    "description": "Accompagner l'école LA GRÂCE DE DIEU et aider les élèves défavorisés.",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "phone": "Téléphone",
+    "email": "Email",
+    "copyright": "© {{year}} Tous droits réservés.",
+    "company": "BLK Empire"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

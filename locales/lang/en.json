@@ -1,0 +1,25 @@
+{
+  "home": {
+    "navbar": {
+      "link1": "Home",
+      "link2": "School",
+      "link3": "Our Team",
+      "link4": "Who We Are",
+      "link5": "Support Us",
+      "link6": "Contact Us",
+      "language": "Language",
+      "loginBtn": "Log In",
+      "dashboardBtn": "Dashboard"
+    }
+  },
+  "footer": {
+    "description": "Supporting LA GRÂCE DE DIEU school and helping disadvantaged students.",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "phone": "Phone",
+    "email": "Email",
+    "copyright": "© {{year}} All rights reserved.",
+    "company": "BLK Empire"
+  }
+}
+  

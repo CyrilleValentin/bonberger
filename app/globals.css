@@ -3,6 +3,35 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.font-poppins {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+}
+
+.font-poppins-light {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 300;
+}
+
+.font-poppins-regular {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 400;
+}
+
+.font-poppins-medium {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 500;
+}
+
+.font-poppins-semibold {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 600;
+}
+
+.font-poppins-bold {
+  font-family: var(--font-poppins), system-ui, sans-serif;
+  font-weight: 700;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -123,3 +152,4 @@
     @apply bg-background text-foreground;
   }
 }
+
