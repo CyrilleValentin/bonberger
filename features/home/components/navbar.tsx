@@ -168,7 +168,7 @@ const NavbarComponent = () => {
      {/* Desktop Navigation  */}
     <ul className="hidden md:flex items-center space-x-8 font-semibold text-gray-700">
     <li><a className="text-brand-blue border-b-2 border-brand-blue" href="#">Accueil</a></li>
-    <li><a className="hover:text-brand-blue transition" href="#">À propos</a></li>
+    <li><a className="hover:text-brand-blue transition" href="#">À-propos</a></li>
     <li><a className="hover:text-brand-blue transition" href="#">Nos actions</a></li>
     <li><a className="hover:text-brand-blue transition" href="#">Galerie</a></li>
     <li><a className="hover:text-brand-blue transition" href="#">Contact</a></li>
