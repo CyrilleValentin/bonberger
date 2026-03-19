@@ -1,31 +1,22 @@
 "use client";
-
-
-import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { siteConfig } from "@/configs/site";
-
-
-import Image from "next/image";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import LanguageSelector from "@/components/ui/languageselector";
+
 
 const NavbarComponent = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("");
   const { t } = useTranslation();
   const pathname = usePathname();
-
   
+
   // Mapping des hrefs vers les IDs de sections
   const sectionMap: { [key: string]: string } = {
     "/": "accueil",
     "/A-propos": "A propos",
     "/Nos-actions": "Nos actions",
-    "/Galerie": "Galerie",
+    "/galerie": "Galerie",
     "/Contact": "Contact",
   };
 
@@ -36,7 +27,7 @@ const NavbarComponent = () => {
       return;
     }
 
-    const sections = ["accueil", "A-propos", "Nos actions", "Galerie","contact",];
+    const sections = ["accueil", "A-propos", "Nos actions", "galerie","contact",];
     const observers: IntersectionObserver[] = [];
 
     const updateActiveSection = () => {
@@ -161,20 +152,33 @@ const NavbarComponent = () => {
     <header className="sticky top-0 z-50 bg-white shadow-sm" data-purpose="navigation-bar">
     <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
      {/* Logo {} */}
-    <div className="flex items-center gap-3">
-    <img alt="Bon Berger Logo" className="h-12 w-auto" src=""/>
-    <span className="text-2xl font-bold text-brand-blue tracking-tight">Bon Berger</span>
+    <div className="flex items-center gap-3 flex-shrink-0">
+       <div className="flex-shrink-0 max-h-5">
+    <img alt="Bon Berger Logo" className="h-30 -mt-10 w-auto object-contain" src="/images/logo2.png"/>
+    </div>
+   <span className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary tracking-tight">
+    Bon Berger
+  </span>
     </div>
      {/* Desktop Navigation  */}
-    <ul className="hidden md:flex items-center space-x-8 font-semibold text-gray-700">
-    <li><a className="text-brand-blue border-b-2 border-brand-blue" href="#">Accueil</a></li>
-    <li><a className="hover:text-brand-blue transition" href="#">À propos</a></li>
-    <li><a className="hover:text-brand-blue transition" href="#">Nos actions</a></li>
-    <li><a className="hover:text-brand-blue transition" href="#">Galerie</a></li>
-    <li><a className="hover:text-brand-blue transition" href="#">Contact</a></li>
+   <ul className="hidden md:flex items-center space-x-8 font-semibold text-black">
+      {Object.entries(sectionMap).map(([path, label]) => (
+        <li key={path}>
+          <a
+            href={path}
+            className={`transition ${
+              pathname === path
+                ? "text-secondary border-b-2 border-secondary"
+                : "hover:text-secondary"
+            }`}
+          >
+            {label}
+          </a>
+        </li>
+      ))}
     </ul>
     {/* CTA in Header */}
-    <a className="hidden lg:block bg-brand-orange text-white px-6 py-2 rounded-custom font-bold hover:brightness-110 transition shadow-md" href="#">
+    <a className="hidden lg:block bg-primary text-white px-6 py-2 rounded-lg font-bold hover:bg-secondary transition shadow-md" href="/don">
             Faire un don
           </a>
     {/* Mobile Menu Toggle (Simplified) */}

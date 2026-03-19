@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { poppins } from "@/lib/fonts";
 import I18nProvider from "@/locales/i18nprovider";
+import Navbar from '@/features/home/components/navbar';
+import Footer from "@/features/home/components/footer";
 
 
 
@@ -23,7 +25,9 @@ export default function RootLayout({
        
       >
         <I18nProvider>
+          <Navbar/>
         {children}
+        <Footer/>
         </I18nProvider>
       </body>
     </html>
