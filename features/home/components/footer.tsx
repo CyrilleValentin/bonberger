@@ -3,44 +3,42 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useTranslation } from "react-i18next";
-import { Mail, Phone } from "lucide-react";
-import { siteConfig } from "@/configs/site";
+
 import { Input } from "@/components/ui/input";
 import { AiOutlineHome, AiOutlineInfoCircle, AiOutlineProject, AiOutlinePicture, AiOutlinePhone } from "react-icons/ai";
 import { JSX, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 
-const SocialIcon = ({
-  href,
-  label,
-  children,
-}: {
-  href: string;
-  label: string;
-  children: React.ReactNode;
-}) => (
-  <Link
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    aria-label={label}
-    className="text-gray-600 hover:text-[#06B6D4] transition-colors"
-  >
-    {children}
-  </Link>
-);
+// const SocialIcon = ({
+//   href,
+//   label,
+//   children,
+// }: {
+//   href: string;
+//   label: string;
+//   children: React.ReactNode;
+// }) => (
+//   <Link
+//     href={href}
+//     target="_blank"
+//     rel="noopener noreferrer"
+//     aria-label={label}
+//     className="text-gray-600 hover:text-[#06B6D4] transition-colors"
+//   >
+//     {children}
+//   </Link>
+// );
 
  const sectionMap: { [key: string]: { label: string; icon: JSX.Element }  } = {
     "/": { label: "Accueil", icon: <AiOutlineHome /> },
   "/A-propos": { label: "A propos", icon: <AiOutlineInfoCircle /> },
   "/Nos-actions": { label: "Nos actions", icon: <AiOutlineProject /> },
   "/galerie": { label: "Galerie", icon: <AiOutlinePicture /> },
-  "/Contact": { label: "Contact", icon: <AiOutlinePhone /> },
+  "/contact": { label: "Contact", icon: <AiOutlinePhone /> },
   };
 
 const Footer = () => {
   const { t } = useTranslation();
-  const { logo, navLinks, socialLinks, contact } = siteConfig;
    const pathname = usePathname();
 
   const [activeSection, setActiveSection] = useState<string>("");
@@ -48,7 +46,7 @@ const Footer = () => {
   // Détecter la section visible sur la page d'accueil
   useEffect(() => {
     if (pathname !== "/") {
-      setActiveSection("");
+     
       return;
     }
 
@@ -85,9 +83,9 @@ const Footer = () => {
   <div className="max-w-7xl mx-auto px-6 md:px-20 grid grid-cols-1 md:grid-cols-4 gap-12 py-13">
     {/* Logo et description */}
     <div className="col-span-1 md:col-span-1">
-      <div className="flex items-center gap-3 flex-shrink-0">
-        <div className="flex-shrink-0 max-h-5">
-          <img
+      <div className="flex items-center gap-3 shrink-0">
+        <div className="shrink-0 max-h-5">
+          <Image width={100} height={100}
             alt="Bon Berger Logo"
             className="h-35 -mt-13 w-auto object-contain"
             src="/images/logo2.png"
@@ -98,7 +96,7 @@ const Footer = () => {
         </span>
       </div>
       <p className="text-sm text-white dark:text-slate-400 leading-relaxed mt-8">
-        Offrir un avenir radieux à chaque enfant en situation de vulnérabilité à travers l'amour, l'éducation et le soin.
+        Offrir un avenir radieux à chaque enfant en situation de vulnérabilité à travers l&apos;amour, l&apos;éducation et le soin.
       </p>
     </div>
 
@@ -125,7 +123,7 @@ const Footer = () => {
     <div>
       <h5 className="font-bold mb-6 text-white">Newsletter</h5>
       <p className="text-sm text-white dark:text-slate-400 mb-4">
-        Restez informé de nos activités et de l'impact de vos dons.
+        Restez informé de nos activités et de l&apos;impact de vos dons.
       </p>
       <div className="flex gap-2">
         <Input
