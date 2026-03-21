@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { Button } from "@/components/ui/button";
@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 // Schéma de validation avec Zod
 const donationSchema = z.object({
@@ -37,7 +38,7 @@ const Dont = () => {
   });
 
   const { handleSubmit, control, setValue, watch } = form;
-  const customAmount = watch("amount");
+  const customAmount = Number(watch("amount"));
 
   const onSubmit = (data: DonationFormInputs) => {
     console.log("Form submitted:", data);
@@ -184,14 +185,14 @@ const Dont = () => {
                     ].map((card) => (
                       <div
                         key={card.id}
-                        onClick={() => setSelectedPayment(card.id as any)}
+                        onClick={() => setSelectedPayment(card.id as "visa" | "mastercard" | "paypal" | null)}
                         className={`relative cursor-pointer border-2 rounded-lg p-1 transition-all ${
                           selectedPayment === card.id
                             ? "border-primary"
                             : "border-gray-200"
                         }`}
                       >
-                        <img alt={card.alt} className="h-10" src={card.src} />
+                        <Image width={40} height={40} alt={card.alt} className="h-10" src={card.src} />
                         {selectedPayment === card.id && (
                           <span className="absolute top-0 right-0 w-4 h-4 bg-primary rounded-full border-2 border-white" />
                         )}
@@ -219,7 +220,7 @@ const Dont = () => {
           {/* Impact */}
           <section className="space-y-8">
             <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-              <h2 className="text-2xl font-bold mb-6">L'impact de vos dons</h2>
+              <h2 className="text-2xl font-bold mb-6">L&apos;impact de vos dons</h2>
               <div className="space-y-6">
                 {[20, 50, 100].map((amount) => (
                   <div
@@ -234,7 +235,7 @@ const Dont = () => {
                         <>
                           Offre{" "}
                           <span className="font-bold">1 mois de repas</span>{" "}
-                          complets et nutritifs pour un enfant de l'orphelinat.
+                          complets et nutritifs pour un enfant de l&apos;orphelinat.
                         </>
                       )}
                       {amount === 50 && (
@@ -272,7 +273,7 @@ const Dont = () => {
                     d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                 </svg>
                 <span className="text-xs font-semibold text-gray-600">
@@ -291,7 +292,7 @@ const Dont = () => {
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeWidth="2"
                   ></path>
                 </svg>
                 <span className="text-xs font-semibold text-gray-600">

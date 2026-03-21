@@ -1,13 +1,13 @@
 "use client";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { useTranslation } from "react-i18next";
+
 
 
 const NavbarComponent = () => {
-  const [isOpen, setIsOpen] = useState(false);
+
   const [activeSection, setActiveSection] = useState<string>("");
-  const { t } = useTranslation();
   const pathname = usePathname();
   
 
@@ -17,13 +17,13 @@ const NavbarComponent = () => {
     "/A-propos": "A propos",
     "/Nos-actions": "Nos actions",
     "/galerie": "Galerie",
-    "/Contact": "Contact",
+    "/contact": "Contact",
   };
 
   // Détecter la section visible avec Intersection Observer
   useEffect(() => {
     if (pathname !== "/") {
-      setActiveSection("");
+   
       return;
     }
 
@@ -101,19 +101,7 @@ const NavbarComponent = () => {
     };
   }, [pathname]);
 
-  const isActive = (href: string) => {
-    // Si on est sur la page d'accueil, utiliser la section active détectée
-    if (pathname === "/") {
-      const sectionId = sectionMap[href];
-      return activeSection === sectionId || (href === "/" && activeSection === "accueil");
-    }
-    
-    // Pour les autres pages, utiliser le pathname
-    if (href === "/") {
-      return pathname === href;
-    }
-    return pathname?.startsWith(href);
-  };
+ 
 
   const scrollToSection = (sectionId: string) => {
     if (pathname !== "/") {
@@ -133,28 +121,17 @@ const NavbarComponent = () => {
         behavior: "smooth",
       });
     }
-    setIsOpen(false); // Fermer le menu mobile si ouvert
   };
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    const sectionId = sectionMap[href];
-    
-    if (sectionId && pathname === "/") {
-      e.preventDefault();
-      scrollToSection(sectionId);
-      // Mettre à jour la section active immédiatement
-      setActiveSection(sectionId);
-    }
-    // Si on n'est pas sur la page d'accueil, laisser le comportement par défaut
-  };
+ 
 
   return (
     <header className="sticky top-0 z-50 bg-white shadow-sm" data-purpose="navigation-bar">
     <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
      {/* Logo {} */}
-    <div className="flex items-center gap-3 flex-shrink-0">
-       <div className="flex-shrink-0 max-h-5">
-    <img alt="Bon Berger Logo" className="h-30 -mt-10 w-auto object-contain" src="/images/logo2.png"/>
+    <div className="flex items-center gap-3 shrink-0">
+       <div className="shrink-0 max-h-5">
+    <Image width={100} height={100} alt="Bon Berger Logo" className="h-30 -mt-10 w-auto object-contain" src="/images/logo2.png"/>
     </div>
    <span className="text-xl sm:text-2xl md:text-3xl font-bold text-secondary tracking-tight">
     Bon Berger
@@ -183,8 +160,8 @@ const NavbarComponent = () => {
           </a>
     {/* Mobile Menu Toggle (Simplified) */}
     <button aria-label="Menu" className="md:hidden p-2 text-gray-600">
-    <svg className="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round"></path>
+    <svg className="w-8 h-8" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" strokeLinecap="round" strokeLinejoin="round"></path>
     </svg>
     </button>
     </nav>

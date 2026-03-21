@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { MdPhotoLibrary } from "react-icons/md";
 import { FiVideo, FiPlay, FiArrowRight } from "react-icons/fi";
 import { MdCalendarMonth, MdMail } from "react-icons/md";
@@ -59,7 +58,6 @@ const cards: Card[] = [
 ];
 
 const Galerie = () => {
-  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("Tout");
   const [viewMode, setViewMode] = useState<"image" | "video">("image");
 
@@ -82,13 +80,13 @@ const Galerie = () => {
           Notre Galerie de <span className="text-primary">Sourires</span>
         </h2>
         <p className="max-w-2xl text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-          Découvrez les moments précieux, les étapes d'apprentissage et les
+          Découvrez les moments précieux, les étapes d &apos;apprentissage et les
           instants de pure joie qui rythment le quotidien de nos protégés.
         </p>
       </section>
 
       {/* Switch Image / Video */}
-      <div className="flex items-center gap-2 mb-8 bg-gray-100 p-1 rounded-full justify-center mx-auto w-full max-w-[40rem]">
+      <div className="flex items-center gap-2 mb-8 bg-gray-100 p-1 rounded-full justify-center mx-auto w-full max-w-160">
         <button
           onClick={() => setViewMode("image")}
           className={`flex-1 px-6 py-2 rounded-full font-semibold transition-colors ${
@@ -146,12 +144,12 @@ const Galerie = () => {
               >
                 {viewMode === "image" ? (
                   <div
-                    className="aspect-[4/3] w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
+                    className="aspect-4/3 w-full bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
                     style={{ backgroundImage: `url('${card.photo}')` }}
                     data-alt={card.nom}
                   ></div>
                 ) : (
-                  <div className="aspect-[4/3] w-full bg-black">
+                  <div className="aspect-4/3 w-full bg-black">
                     <iframe
                       className="w-full h-full"
                       src={card.video || ""}
