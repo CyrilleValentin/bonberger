@@ -1,12 +1,11 @@
-import Navbar from "@/features/home/components/navbar";
-import Footer from "@/features/home/components/footer";
+
 import Image from "next/image";
 import Link from "next/link";
 
 export default function AProposPage() {
   return (
     <>
-      <Navbar />
+
       <main className="bg-white">
         {/* Hero Section */}
         <section className="relative bg-brand-orange/10 py-20 overflow-hidden" data-purpose="hero-banner">
@@ -28,7 +27,7 @@ export default function AProposPage() {
           <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="w-full md:w-1/2">
-                <div className="rounded-custom overflow-hidden shadow-xl aspect-[4/3]">
+                <div className="rounded-custom overflow-hidden shadow-xl aspect-4/3">
                   <img
                     alt="Photo historique de l'orphelinat"
                     className="w-full h-full object-cover"
@@ -266,7 +265,7 @@ export default function AProposPage() {
           </div>
         </footer>
       </main>
-      <Footer />
+      
     </>
   );
 }

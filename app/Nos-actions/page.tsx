@@ -1,11 +1,10 @@
-import Navbar from "@/features/home/components/navbar";
-import Footer from "@/features/home/components/footer";
+
 import Link from "next/link";
 
 export default function NosActionsPage() {
   return (
     <>
-      <Navbar />
+   
       <main className="bg-white">
         {/* Hero */}
         <section
@@ -214,7 +213,7 @@ export default function NosActionsPage() {
         </section>
       </main>
 
-      <Footer />
+      
     </>
   );
 }
