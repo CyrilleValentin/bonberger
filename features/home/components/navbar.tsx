@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import router from "next/router";
 import { useState, useEffect } from "react";
 
 
@@ -12,7 +13,7 @@ const NavbarComponent = () => {
   
 
   // Mapping des hrefs vers les IDs de sections
-  const sectionMap: { [key: string]: string } = {
+  const sectionMap: Record<string, string> = {
     "/": "accueil",
     "/A-propos": "A propos",
     "/Nos-actions": "Nos actions",
@@ -106,7 +107,7 @@ const NavbarComponent = () => {
   const scrollToSection = (sectionId: string) => {
     if (pathname !== "/") {
       // Si on n'est pas sur la page d'accueil, naviguer d'abord
-      window.location.href = `/#${sectionId}`;
+      router.push(`/#${sectionId}`);
       return;
     }
     
