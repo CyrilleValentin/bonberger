@@ -27,7 +27,7 @@ export default function AProposPage() {
           <div className="container mx-auto px-6">
             <div className="flex flex-col md:flex-row items-center gap-12">
               <div className="w-full md:w-1/2">
-                <div className="rounded-custom overflow-hidden shadow-xl aspect-4/3">
+                <div className="rounded-custom overflow-hidden shadow-xl aspect-[4/3]">
                   <img
                     alt="Photo historique de l'orphelinat"
                     className="w-full h-full object-cover"
